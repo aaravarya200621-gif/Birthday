@@ -449,47 +449,54 @@
             <div class="modal-body">
                 <div class="playlist">
                     <h3 style="margin-bottom: 15px;">Songs That Remind Me of Us 💕</h3>
-                    <div class="s1.mp3">
-                        <img src="c1.jpg" alt="Song cover">
-                        <div class="playlist-item-info">
-                            <div class="playlist-item-title">Ek Ladki Bheegi Bhagi si</div>
-                            <div class="playlist-item-artist">Kishore Kumar</div>
-                        </div>
-                        <button class="playlist-item-play"><i class="fas fa-play"></i></button>
-                    </div>
-                    <div class="s2.mp3">
-                        <img src="c2.jpg" alt="Song cover">
-                        <div class="playlist-item-info">
-                            <div class="playlist-item-title">Kyon</div>
-                            <div class="playlist-item-artist">Pritam</div>
-                        </div>
-                        <button class="playlist-item-play"><i class="fas fa-play"></i></button>
-                    </div>
-                    <div class="s3.mp3">
-                        <img src="c3.jpg" alt="Song cover">
-                        <div class="playlist-item-info">
-                            <div class="playlist-item-title">Chaar Kadam</div>
-                            <div class="playlist-item-artist">Shaan</div>
-                        </div>
-                        <button class="playlist-item-play"><i class="fas fa-play"></i></button>
-                    </div>
-                    <div class="s4.mp3">
-                        <img src="c4.jpg" alt="Song cover">
-                        <div class="playlist-item-info">
-                            <div class="playlist-item-title">Aaj Se Teri</div>
-                            <div class="playlist-item-artist">Amit Trivedi</div>
-                        </div>
-                        <button class="playlist-item-play"><i class="fas fa-play"></i></button>
-                    </div>
-                    <div class="s5.mp3">
-                        <img src="c5.png" alt="Song cover">
-                        <div class="playlist-item-info">
-                            <div class="playlist-item-title">Birthday Wishes</div>
-                            <div class="playlist-item-artist">Happy Songs</div>
-                        </div>
-                        <button class="playlist-item-play"><i class="fas fa-play"></i></button>
-                    </div>
-                </div>
+                    <div class="playlist">
+    <h3 style="margin-bottom: 15px;">Songs That Remind Me of Us 💕</h3>
+
+    <div class="playlist-item" data-src="s1.mp3">
+        <img src="c1.jpg">
+        <div class="playlist-item-info">
+            <div class="playlist-item-title">Ek Ladki Bheegi Bhagi Si</div>
+            <div class="playlist-item-artist">Kishore Kumar</div>
+        </div>
+        <button class="playlist-item-play">▶</button>
+    </div>
+
+    <div class="playlist-item" data-src="s2.mp3">
+        <img src="c2.jpg">
+        <div class="playlist-item-info">
+            <div class="playlist-item-title">Kyon</div>
+            <div class="playlist-item-artist">Pritam</div>
+        </div>
+        <button class="playlist-item-play">▶</button>
+    </div>
+
+    <div class="playlist-item" data-src="s3.mp3">
+        <img src="c3.jpg">
+        <div class="playlist-item-info">
+            <div class="playlist-item-title">Chaar Kadam</div>
+            <div class="playlist-item-artist">Shaan</div>
+        </div>
+        <button class="playlist-item-play">▶</button>
+    </div>
+
+    <div class="playlist-item" data-src="s4.mp3">
+        <img src="c4.jpg">
+        <div class="playlist-item-info">
+            <div class="playlist-item-title">Aaj Se Teri</div>
+            <div class="playlist-item-artist">Amit Trivedi</div>
+        </div>
+        <button class="playlist-item-play">▶</button>
+    </div>
+
+    <div class="playlist-item" data-src="s5.mp3">
+        <img src="c5.png">
+        <div class="playlist-item-info">
+            <div class="playlist-item-title">Sailor Song</div>
+            <div class="playlist-item-artist">Gigi Perez</div>
+        </div>
+        <button class="playlist-item-play">▶</button>
+    </div>
+</div>
                 <div style="margin-top: 20px;">
                     <a href="#" download class="back-button" style="background: #ffb6c1; border-color: #ffb6c1; color: white;">
                         <i class="fas fa-download"></i> Download Your Digital Gift
@@ -505,20 +512,6 @@
     </div>
 
     <!-- Audio Elements -->
-    <audio id="click-sound" preload="auto">
-        <source src="s1.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="background-music" loop>
-        <source src="s2.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="background-music" loop>
-        <source src="s3.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="background-music" loop>
-        <source src="s4.mp3" type="audio/mpeg">
-    </audio>
-   <audio id="background-music" loop>
-        <source src="s5.mp3" type="audio/mpeg">
     </audio>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.5.1/confetti.browser.min.js"></script>
@@ -659,5 +652,18 @@
             }
         });
     </script>
+        <audio id="audio-player"></audio>
+        <script>
+const player = document.getElementById("audio-player");
+const buttons = document.querySelectorAll(".playlist-item-play");
+
+buttons.forEach((btn) => {
+    btn.addEventListener("click", function () {
+        const song = this.parentElement.getAttribute("data-src");
+        player.src = song;
+        player.play();
+    });
+});
+</script>
 </body>
 </html>
